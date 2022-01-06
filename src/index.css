@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Mosk;
+    font-weight: 100;
+    src: url(assets/fonts/Mosk-Thin-100.ttf);
+  }
+  @font-face {
+    font-family: Mosk;
+    font-weight: 200;
+    src: url(assets/fonts/Mosk-Extra-Light-200.ttf);
+  }
+  @font-face {
+    font-family: Mosk;
+    font-weight: 300;
+    src: url(assets/fonts/Mosk-Light-300.ttf);
+  }
+  @font-face {
+    font-family: Mosk;
+    font-weight: 400;
+    src: url(assets/fonts/Mosk-Normal-400.ttf);
+  }
+  @font-face {
+    font-family: Mosk;
+    font-weight: 500;
+    src: url(assets/fonts/Mosk-Medium-500.ttf);
+  }
+  @font-face {
+    font-family: Mosk;
+    font-weight: 600;
+    src: url(assets/fonts/Mosk-Semi-Bold-600.ttf);
+  }
+  @font-face {
+    font-family: Mosk;
+    font-weight: 700;
+    src: url(assets/fonts/Mosk-Bold-700.ttf);
+  }
+  @font-face {
+    font-family: Mosk;
+    font-weight: 800;
+    src: url(assets/fonts/Mosk-Extra-Bold-800.ttf);
+  }
+  @font-face {
+    font-family: Mosk;
+    font-weight: 900;
+    src: url(assets/fonts/Mosk-Ultra-Bold-900.ttf);
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  ,
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
