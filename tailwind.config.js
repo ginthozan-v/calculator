@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       Mosk: "'Mosk', sans-serif",
+      Lato: "'Lato', sans-serif"
     },
     extend: {
       animation: {

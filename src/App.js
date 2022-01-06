@@ -5,7 +5,7 @@ import Home from "./containers/Home";
 
 function App() {
   return (
-    <div className='font-Mosk flex flex-col min-h-screen px-40'>
+    <div className='flex flex-col min-h-screen px-40 font-Lato'>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
