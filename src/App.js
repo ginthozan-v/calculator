@@ -1,16 +1,20 @@
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header';
-import Calculator from './containers/Calculator';
+import Footer from "./components/Footer";
 import Home from "./containers/Home";
+import Calculator from './containers/Calculator';
+import { ROOT } from './config/endpoints';
+
 
 function App() {
   return (
-    <div className='flex flex-col min-h-screen px-40 font-Lato'>
+    <div className='flex flex-col h-screen max-h-screen px-6 sm:px-16 md:px-20 lg:px-40 font-Lato'>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/salary-calculator" element={<Calculator />} />
+        <Route path={ROOT} element={<Home />} />
+        <Route path="/*" element={<Calculator />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

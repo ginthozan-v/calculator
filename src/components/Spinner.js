@@ -1,15 +1,17 @@
-import React from 'react'
-import Loader from "react-loader-spinner";
-const Spinner = () => {
+import React, { useState } from 'react'
+import { DotLoader } from 'react-spinners';
+import { css } from "@emotion/react";
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+`;
+
+const Spinner = ({ loading }) => {
+    const [color, setColor] = useState("#cfcfcf");
+
     return (
-        <Loader
-            type="MutatingDots"
-            color="#00BFFF"
-            secondaryColor='#c7c7c7'
-            height={100}
-            width={100}
-            timeout={3000}
-        />
+        <DotLoader color={color} loading={loading} css={override} size={60} margin={2} />
     )
 }
 
