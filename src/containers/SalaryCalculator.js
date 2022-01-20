@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 import CurrencyInputField from '../components/CurrencyInputField';
 import useMediaQuery from '../hook/useMediaQuery';
 import Vector from '../assets/image/Calculator-bro.svg'
+import numberWithCommas from '../components/NumberWithCommas';
 const override = css`
   display: block;
   margin: 0 auto;
@@ -64,12 +65,7 @@ const SalaryCalculator = () => {
         setEmployerETF('');
     }
 
-    const numberWithCommas = (x) => {
-        return x.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'LKR',
-        })
-    }
+
 
     return (
         <>
