@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HomeImage from '../assets/image/kelly-sikkema-xoU52jUVUXA-unsplash.jpg'
 import TypeCard from '../components/TypeCard'
-import { HomeIcon, CashIcon, BeakerIcon } from '@heroicons/react/solid'
-import { HOME_LOAN_CALCULATOR, SALARY_CALCULATOR } from '../config/endpoints'
-
+import { HomeIcon, CashIcon, UserIcon, TruckIcon, DotsHorizontalIcon } from '@heroicons/react/solid'
+import { HOME_LOAN_CALCULATOR, LEASING_CALCULATOR, PERSONAL_LOAN_CALCULATOR, SALARY_CALCULATOR } from '../config/endpoints'
+import Alert from '../components/Alert'
 
 const types = [
     {
@@ -15,31 +15,50 @@ const types = [
     },
     {
         id: 2,
-        title: 'Home Loans',
+        title: 'Home Loan',
         icon: HomeIcon,
         link: HOME_LOAN_CALCULATOR
     },
     {
         id: 3,
-        title: 'Business Finance',
-        icon: BeakerIcon,
-        link: "#"
+        title: 'Personal Loan',
+        icon: UserIcon,
+        link: PERSONAL_LOAN_CALCULATOR
     },
     {
         id: 4,
-        title: 'Quick Loans',
-        icon: BeakerIcon,
-        link: "#"
+        title: 'Leasing',
+        icon: TruckIcon,
+        link: LEASING_CALCULATOR
     },
     {
         id: 5,
         title: 'Others',
-        icon: BeakerIcon,
+        icon: DotsHorizontalIcon,
         link: "#"
     }
 ]
 
 const Home = () => {
+    const [isModal, setModal] = useState(false);
+
+    const renderModalBody = () => {
+        let content = "";
+        content = (
+            <table className="min-w-full">
+
+            </table>
+        )
+        return content;
+    };
+
+    const showAlert = () => {
+
+    }
+
+
+
+
     return (
         <div className='flex-grow grid md:grid-cols-2'>
 
@@ -63,7 +82,9 @@ const Home = () => {
             <div className='h-48 md:h-full sm:py-4 md:py-10 lg:px-20'>
                 <img src={HomeImage} className='w-full h-full object-cover' alt='banner' />
             </div>
+            <Alert isModalOpen={isModal} setModalClose={setModal} message="Cooking more features 😉" />
         </div>
+
     )
 }
 

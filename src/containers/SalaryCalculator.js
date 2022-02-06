@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
-import { DotLoader } from 'react-spinners';
-import { css } from "@emotion/react";
+import Spinner from '../components/Spinner'
 import CurrencyInputField from '../components/CurrencyInputField';
-import useMediaQuery from '../hook/useMediaQuery';
 import Vector from '../assets/image/Calculator-bro.svg'
 import numberWithCommas from '../components/NumberWithCommas';
-const override = css`
-  display: block;
-  margin: 0 auto;
-`;
+import Calculator from '../components/Calculator';
 
 const SalaryCalculator = () => {
     const [basicSalary, setBasicSalary] = useState('');
@@ -21,10 +16,6 @@ const SalaryCalculator = () => {
     const [employerETF, setEmployerETF] = useState('');
     const [loading, setLoading] = useState(false);
     const [loaded, setLoaded] = useState(false);
-    const [color, setColor] = useState("#cfcfcf");
-
-    // media query hooks
-    // const isDesktop = useMediaQuery('(min-width: 1024px)');
 
     const calculate = () => {
         setLoading(true)
@@ -65,43 +56,39 @@ const SalaryCalculator = () => {
         setEmployerETF('');
     }
 
-
+    const renderCalculator = () => {
+        let content = "";
+        content = (
+            <div className="pt-16">
+                <div className="grid grid-cols-6 gap-5 sm:gap-10">
+                    <div className="col-span-6 sm:col-span-3">
+                        <CurrencyInputField setValue={setBasicSalary} value={basicSalary} name="basic salary" />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                        <CurrencyInputField setValue={setAllowance} value={allowances} name="allowance" />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                        <CurrencyInputField setValue={setSalaryAdvance} value={salaryAdvance} name="salary advance" />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                        <CurrencyInputField setValue={setStaffLoan} value={staffLoan} name="staff loan" />
+                    </div>
+                    <div className="col-span-6">
+                        <button onClick={calculate} className='bg-sky-400 block w-full py-3 rounded-none'>Calculate</button>
+                    </div>
+                </div>
+            </div>
+        )
+        return content;
+    };
 
     return (
         <>
-            <div className='bg-black sm:col-span-2 row-span-2 p-8 sm:p-14 lg:p-8 xl:p-14 text-white'>
-                <div className={`h-96 ${ loaded ? 'hidden lg:block' : 'block' }`}>
-                    <div className='border-b border-slate-600 pb-1'>
-                        <h1 className='font-extrabold text-4xl'>Salary Calculator</h1>
-                        <p>Calculate EPF and ETF easily be providing details related to your salary.</p>
-                    </div>
+            <Calculator loaded={loaded} renderCalculator={renderCalculator} title='Salary Calculator' description='Calculate EPF and ETF easily be providing details related to your salary.' />
 
-                    <div className="pt-16">
-                        <div className="grid grid-cols-6 gap-5 sm:gap-10">
-                            <div className="col-span-6 sm:col-span-3">
-                                <CurrencyInputField setValue={setBasicSalary} value={basicSalary} name="basic salary" />
-                            </div>
-                            <div className="col-span-6 sm:col-span-3">
-                                <CurrencyInputField setValue={setAllowance} value={allowances} name="allowance" />
-                            </div>
-                            <div className="col-span-6 sm:col-span-3">
-                                <CurrencyInputField setValue={setSalaryAdvance} value={salaryAdvance} name="salary advance" />
-                            </div>
-                            <div className="col-span-6 sm:col-span-3">
-                                <CurrencyInputField setValue={setStaffLoan} value={staffLoan} name="staff loan" />
-                            </div>
-                            <div className="col-span-6">
-                                <button onClick={calculate} className='bg-sky-400 block w-full py-3 rounded-none'>Calculate</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div >
-            <div className=' bg-slate-100 lg:col-span-2 xl:col-span-1 px-14 flex flex-col justify-center row-span-2'>
+            <div className='result'>
                 {loading ?
-                    <div className='flex h-96 lg:h-full items-center justify-center '>
-                        <DotLoader color={color} loading={loading} css={override} size={60} margin={2} />
-                    </div>
+                    <Spinner loading={loading} />
 
                     : loaded ?
                         <div className='lg:h-96'>

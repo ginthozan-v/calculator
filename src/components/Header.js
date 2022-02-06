@@ -1,10 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import logo from '../assets/image/logo.png'
 
 const Header = () => {
     return (
         <div className='flex justify-between items-center py-5 text-slate-600'>
-            <Link to="/" className='text-3xl font-black font-Mosk underline decoration-indigo-300 decoration-4'>Calculator</Link>
+            <Link to="/" className='flex items-center gap-2 text-3xl font-black font-Mosk underline decoration-indigo-300 decoration-4'>
+                <img src={logo} alt="logo" className='w-10 h-10' />
+                Calculator</Link>
             {/* <ul className='flex gap-6 text-sm font-bold'>
                 <li>Navigation 1</li>
                 <li>Navigation 2</li>

@@ -50,6 +50,15 @@
     font-weight: 900;
     src: url(assets/fonts/Mosk-Ultra-Bold-900.ttf);
   }
+
+  .glassmorphism {
+    /* From https://css.glass */
+    background: rgba(165, 180, 252, 0.34);
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid rgba(165, 180, 252, 0.43);
+  }
 }
 
 @layer utilities {
@@ -59,5 +68,11 @@
   ,
   .animation-delay-4000 {
     animation-delay: 4s;
+  }
+  .calculator {
+    @apply bg-black sm:col-span-2 row-span-2 p-8 sm:p-14 lg:p-8 xl:p-14 text-white;
+  }
+  .result {
+    @apply bg-slate-100 lg:col-span-2 xl:col-span-1 px-14 flex flex-col justify-center row-span-2;
   }
 }

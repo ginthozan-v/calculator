@@ -8,14 +8,16 @@ import { ROOT } from './config/endpoints';
 
 function App() {
   return (
-    <div className='flex flex-col h-screen max-h-screen px-6 sm:px-16 md:px-20 lg:px-40 font-Lato'>
-      <Header />
-      <Routes>
-        <Route path={ROOT} element={<Home />} />
-        <Route path="/*" element={<Calculator />} />
-      </Routes>
-      <Footer />
-    </div>
+    <>
+      <div className='flex flex-col h-screen max-h-screen px-6 sm:px-16 md:px-20 lg:px-40 font-Lato'>
+        <Header />
+        <Routes>
+          <Route path={ROOT} element={<Home />} />
+          <Route path="/*" element={<Calculator />} />
+        </Routes>
+        <Footer />
+      </div>
+    </>
   );
 }
 
