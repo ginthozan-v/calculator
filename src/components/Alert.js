@@ -32,11 +32,11 @@ const Alert = ({ isModalOpen, setModalClose, message }) => {
                         leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                         leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                     >
-                        <div className="inline-block align-bottom  text-center overflow-hidden shadow-xl transform transition-all sm:my-8 
+                        <div className="inline-block align-bottom text-center overflow-hidden shadow-xl transform transition-all sm:my-8 
                     sm:align-middle">
-                            <div className="glassmorphism px-20 py-6 rounded-xl">
+                            <div className="glassmorphism px-10 md:px-20 py-6 rounded-xl">
                                 <div className="w-full">
-                                    <div className='text-white text-xl font-bold drop-shadow-xl'>
+                                    <div className='text-white text-lg md:text-xl font-bold drop-shadow-xl'>
                                         {message}
                                     </div>
                                 </div>

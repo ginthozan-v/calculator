@@ -7,7 +7,7 @@ const Header = () => {
         <div className='flex justify-between items-center py-5 text-slate-600'>
             <Link to="/" className='flex items-center gap-2 text-3xl font-black font-Mosk underline decoration-indigo-300 decoration-4'>
                 <img src={logo} alt="logo" className='w-10 h-10' />
-                Calculator 2</Link>
+                Calculator</Link>
             {/* <ul className='flex gap-6 text-sm font-bold'>
                 <li>Navigation 1</li>
                 <li>Navigation 2</li>

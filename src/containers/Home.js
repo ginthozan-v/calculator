@@ -29,7 +29,7 @@ const types = [
         id: 4,
         title: 'Leasing',
         icon: TruckIcon,
-        link: LEASING_CALCULATOR
+        link: '#'
     },
     {
         id: 5,
@@ -52,13 +52,6 @@ const Home = () => {
         return content;
     };
 
-    const showAlert = () => {
-
-    }
-
-
-
-
     return (
         <div className='flex-grow grid md:grid-cols-2'>
 
@@ -74,13 +67,14 @@ const Home = () => {
                 <div className='relative flex flex-wrap mt-10 sm:mt-14'>
                     {types.map(type => {
                         return (
-                            <TypeCard key={type.id} title={type.title} Icon={type.icon} link={type.link} />
+                            <TypeCard key={type.id} title={type.title} Icon={type.icon} link={type.link} setModal={setModal} />
                         )
                     })}
                 </div>
             </div>
-            <div className='h-48 md:h-full sm:py-4 md:py-10 lg:px-20'>
+            <div className='relative h-48 md:h-full sm:py-4 md:py-10 lg:px-20'>
                 <img src={HomeImage} className='w-full h-full object-cover' alt='banner' />
+                <a href="https://unsplash.com/photos/xoU52jUVUXA" target="_blank" rel="noreferrer" className='absolute bottom-1 right-1 md:bottom-14 md:right-24 bg-black text-white text-xs font-bold py-1  px-3 m-0 rounded-full bg-opacity-50'>Unsplash</a>
             </div>
             <Alert isModalOpen={isModal} setModalClose={setModal} message="Cooking more features 😉" />
         </div>

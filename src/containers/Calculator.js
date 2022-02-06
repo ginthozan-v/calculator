@@ -44,7 +44,7 @@ const Calculator = () => {
             {renderCalculator()}
             <div className='relative h-64 row-span-1 bg-gray-50 mt-5 col-span-4 xl:col-span-3'>
                 <img src={adImage} alt="advertisement" className='h-full w-full object-cover' />
-                <a className='text-xs text-yellow-200 absolute bottom-2 left-2' href='https://www.freepik.com/photos/woman' target="_blank">Woman photo created by tirachardz - www.freepik.com</a>
+                <a className='text-xs text-yellow-200 absolute bottom-2 left-2' href='https://www.freepik.com/photos/woman' target="_blank" rel="noreferrer">Woman photo created by tirachardz - www.freepik.com</a>
             </div>
         </div>
     )
