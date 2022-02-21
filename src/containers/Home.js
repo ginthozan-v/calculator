@@ -55,7 +55,7 @@ const Home = () => {
     return (
         <div className='flex-grow grid md:grid-cols-2'>
 
-            <div className='relative flex flex-col justify-center h-full py-10  lg:px-20'>
+            <div className='relative flex flex-col justify-center h-full py-10 lg:px-20'>
 
                 <div className='absolute bottom-24 left-26 sm:left-32 w-40 h-40 sm:w-72 sm:h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob'></div>
                 <div className='absolute bottom-24 right-26 sm:right-32 w-40 h-40 sm:w-72 sm:h-72 bg-sky-300 rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-blob animation-delay-2000'></div>

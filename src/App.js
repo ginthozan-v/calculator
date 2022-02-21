@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Home from "./containers/Home";
 import Calculator from './containers/Calculator';
 import { ROOT } from './config/endpoints';
+import Feedback from './containers/Feedback';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path={ROOT} element={<Home />} />
           <Route path="/*" element={<Calculator />} />
+          <Route path="/feedback" element={<Feedback />} />
         </Routes>
         <Footer />
       </div>

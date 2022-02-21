@@ -14,9 +14,11 @@ const Header = () => {
                 <li>Navigation 3</li>
                 <li>Navigation 4</li>
             </ul> */}
-            <button className='bg-indigo-300 px-8 py-2 rounded-lg text-sm font-bold text-white shadow-lg shadow-indigo-300/50'>
+            <Link to="feedback"
+                className='bg-indigo-300 px-8 py-2 rounded-lg text-sm font-bold text-white shadow-lg 
+                shadow-indigo-300/50 hover:bg-indigo-400 transition duration-150 ease-in-out'>
                 Feedback
-            </button>
+            </Link>
         </div>
     )
 }
