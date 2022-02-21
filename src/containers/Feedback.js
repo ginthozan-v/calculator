@@ -3,7 +3,7 @@ import GoogleLogin from 'react-google-login'
 import { doc, setDoc, onSnapshot, collection, query } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
 
-import FeedbackImage from '../assets/image/kelly-sikkema-xoU52jUVUXA-unsplash.jpg'
+import FeedbackImage from '../assets/image/jason-leung-60j0UB-Z_Yk-unsplash.jpg'
 import db from '../firebase';
 import Avatar from '../components/Avatar';
 import Alert from '../components/Alert';
@@ -113,7 +113,7 @@ const Feedback = () => {
             </div>
             <div className='relative h-48 md:h-full sm:py-4 md:py-10 lg:px-20'>
                 <img src={FeedbackImage} className='w-full h-full object-cover' alt='banner' />
-                <a href="https://unsplash.com/photos/xoU52jUVUXA" target="_blank" rel="noreferrer" className='absolute bottom-1 right-1 md:bottom-14 md:right-24 bg-black text-white text-xs font-bold py-1  px-3 m-0 rounded-full bg-opacity-50'>Unsplash</a>
+                <a href="https://unsplash.com/photos/60j0UB-Z_Yk" target="_blank" rel="noreferrer" className='absolute bottom-1 right-1 md:bottom-14 md:right-24 bg-black text-white text-xs font-bold py-1  px-3 m-0 rounded-full bg-opacity-50'>Unsplash</a>
             </div>
             <Alert isModalOpen={isModal} setModalClose={setModal} message="Please login to give feedback 😔" />
         </div>
