@@ -37,8 +37,8 @@ const Feedback = () => {
             id: uuidv4(),
             title: title,
             feedback: feedback,
-            userName: user.userName,
-            userImage: user.image
+            userName: user?.userName,
+            userImage: user?.image
         }
         setDoc(doc(db, "feedbacks", param.id), param);
     }
