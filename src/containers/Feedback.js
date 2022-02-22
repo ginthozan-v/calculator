@@ -79,7 +79,7 @@ const Feedback = () => {
                     </div>
                     :
                     <>
-                        <p className='text-gray-200'>please login before filling the feedback.</p>
+                        <p className='text-red-200'>please login before filling the feedback.</p>
                         <GoogleLogin
                             clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
                             render={(renderProps) => (
