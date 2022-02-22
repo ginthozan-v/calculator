@@ -105,7 +105,7 @@ const Feedback = () => {
                     <textarea value={feedback} onChange={(e) => setFeedback(e.target.value)} maxLength="100" type="text" placeholder='feedback' className='block p-3 w-full bg-zinc-900 border-0 focus:ring-0 border-b-2 text-zinc-300 sm:text-sm rounded-md' />
 
                     <div className="col-span-6">
-                        <button onClick={submitFeedback} className='bg-sky-400 py-3 px-6 rounded-none font-semibold hover:bg-sky-200 transition-colors '>Submit</button>
+                        <button onClick={() => submitFeedback()} className='bg-sky-400 py-3 px-6 rounded-none font-semibold hover:bg-sky-200 transition-colors '>Submit</button>
                     </div>
                 </div>
 
