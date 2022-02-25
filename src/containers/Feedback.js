@@ -64,11 +64,12 @@ const Feedback = () => {
 
     useEffect(() => {
         const localUser = localStorage.getItem("user");
-        if (localUser) {
+        const u = JSON.parse(localUser)
+        if (u) {
             setUser({
-                id: localUser.googleId,
-                userName: localUser.name,
-                image: localUser.imageUrl
+                id: u.id,
+                userName: u.userName,
+                image: u.image
             })
         }
     }, [])
