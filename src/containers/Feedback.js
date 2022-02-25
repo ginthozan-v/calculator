@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import GoogleLogin from 'react-google-login'
 import { doc, setDoc, onSnapshot, collection, query } from "firebase/firestore";
 import { v4 as uuidv4 } from 'uuid';
+import { auth } from '../firebase';
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import FeedbackImage from '../assets/image/jason-leung-60j0UB-Z_Yk-unsplash.jpg'
 import db from '../firebase';
@@ -17,17 +18,23 @@ const Feedback = () => {
     const [title, setTitle] = useState('');
     const [feedback, setFeedback] = useState('');
 
-    const responseGoogle = (response) => {
-        localStorage.setItem('user', JSON.stringify(response.profileObj));
-        const { name, googleId, imageUrl } = response.profileObj;
 
-        const param = {
-            id: googleId,
-            userName: name,
-            image: imageUrl
-        }
-        setDoc(doc(db, "users", googleId), param);
-        setUser(param);
+    const signInWithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((res) => {
+                const param = {
+                    id: res.user.uid,
+                    userName: res.user.displayName,
+                    image: res.user.photoURL
+                }
+                localStorage.setItem('user', JSON.stringify(param));
+                // setDoc(doc(db, "users", googleId), param);
+                setUser(param);
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     const submitFeedback = () => {
@@ -56,7 +63,7 @@ const Feedback = () => {
     }, [])
 
     useEffect(() => {
-        const localUser = JSON.parse(localStorage.getItem("user"));
+        const localUser = localStorage.getItem("user");
         if (localUser) {
             setUser({
                 id: localUser.googleId,
@@ -79,23 +86,14 @@ const Feedback = () => {
                     </div>
                     :
                     <>
-                        <p className='text-red-200'>please login before filling the feedback.</p>
-                        <GoogleLogin
-                            clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
-                            render={(renderProps) => (
-                                <button
-                                    type="button"
-                                    className='bg-indigo-200 px-4 py-2 mt-4 rounded-lg text-indigo-500 font-bold uppercase shadow-lg shadow-slate-400/50 text-sm'
-                                    onClick={renderProps.onClick}
-                                    disabled={renderProps.disabled}
-                                >
-                                    Sign in with Google
-                                </button>
-                            )}
-                            onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
-                            cookiePolicy='single_host_origin'
-                        />
+                        <p className='text-gray-200'>please login before filling the feedback.</p>
+                        <button
+                            type="button"
+                            className='bg-indigo-200 px-4 py-2 mt-4 rounded-lg text-indigo-500 font-bold uppercase shadow-lg shadow-slate-400/50 text-sm'
+                            onClick={() => signInWithGoogle()}
+                        >
+                            Sign in with Google
+                        </button>
                     </>
                 }
 
