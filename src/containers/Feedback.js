@@ -63,15 +63,20 @@ const Feedback = () => {
     }, [])
 
     useEffect(() => {
-        const localUser = localStorage.getItem("user");
-        const u = JSON.parse(localUser)
-        if (u) {
-            setUser({
-                id: u.id,
-                userName: u.userName,
-                image: u.image
-            })
+        try {
+            const localUser = localStorage.getItem("user");
+            const u = JSON.parse(localUser);
+            if (u) {
+                setUser({
+                    id: u.id,
+                    userName: u.userName,
+                    image: u.image
+                })
+            };
+        } catch (error) {
+            console.log(error)
         }
+
     }, [])
 
 
